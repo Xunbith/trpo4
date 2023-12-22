@@ -1,0 +1,9 @@
+<header>
+    <% if user_signed_in? %>
+        <%= link_to 'Профиль', edit_user_registration_path %>
+    <% end %>
+</header>
+
+<section>
+    <%= render 'foodы/index' %>
+</section>

@@ -1,0 +1,24 @@
+<% @cart.orderables.each do |orderable| %>
+  <% food = orderable.food %>
+  <div id="<%= "cart-#{food.id}" %>">
+    <div style="display:flex;justify-content:space-between;margin: 0em 5em;">
+      <strong>Название:</strong>
+      <%= food.title %>
+      <strong>Описание:</strong>
+      <%= food.description %>
+      <strong>Цена:</strong>
+      <%= food.price %>
+      <%= form_with(url: cart_add_path) do |f| %>
+        <%= f.hidden_field :id, value: food.id %>
+        <%= f.number_field :quantity, value: orderable.quantity, min: 0 %>
+        <%= f.submit "Добавить в корзину" %>
+      <% end %>
+      <%= form_with(url: cart_remove_path) do |f| %>
+        <%= f.hidden_field :id, value: orderable.id %>
+        <%= f.submit "X" %>
+      <% end %>
+      <strong>Всего:</strong>
+      <%= orderable.total %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<nav class="navbar">
+  <ul class="navbar-nav horizontal-nav">
+    <li class="nav-item">
+      <%= link_to "Главная", root_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "About", root_path,  class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Contact", root_path, class: "nav-link" %>
+    </li>
+    
+    <% if current_user %>
+      <li class="nav-item">
+        <%= link_to "Профиль", root_path, class: "nav-link" %>
+      </li>
+      <li class="home-buttons">
+        <%= link_to "Выход", destroy_user_session_path, 'data-turbo-method': :delete, class: "sign-out"%>
+      </li>
+    <% else %>
+      <li class="home-buttons">
+        <%= link_to "Sign In", new_user_session_path, class: "log-in" %>
+      </li>
+      <li class="home-buttons">
+        <%= link_to "Sign Up", new_user_registration_path, class: "sign-up" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

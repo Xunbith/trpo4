@@ -1,0 +1,8 @@
+<h1>Ваша корзина</h1>
+<% @cart.orderables.each do |orderable| %>
+  <% food = orderable.apartment %>
+  <p><%= food.title %> * <%= orderable.quantity %> = $<%= food.price * orderable.quantity %></p>
+
+       <%= render partial: "cart/cart" if @render_cart %>
+<% end %>
+<p>Ваша общая сумма равна $<%= @cart.total %> </p>

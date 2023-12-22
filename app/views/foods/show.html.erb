@@ -1,0 +1,9 @@
+<h1>Информация о блюдах</h1>
+
+<p><strong>Название:</strong> <%= @food.title %></p>
+<p><strong>Описание:</strong> <%= @food.description %></p>
+<p><strong>Цена:</strong> <%= @food.price %></p>
+<p><strong>Местоположение:</strong> <%= @food.location %></p>
+
+<p><%= link_to 'Редактировать', edit_food_path(@food) %></p>
+<p><%= link_to 'Назад', foods_path %></p>

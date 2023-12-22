@@ -1,0 +1,37 @@
+<%= form_with(model: food, url: food.persisted? ? food_path(food) : foods_path, local: true) do |form| %>
+  <% if food.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(food.errors.count, 'error') %> запретила сохранение этого блюда:</h2>
+
+      <ul>
+        <% food.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Название %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Описание %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Цена %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Локация %>
+    <%= form.text_area :location %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
